@@ -2,24 +2,26 @@ module.exports = `
 type City {
   _id: ID!
   name: String!
-  temperature: Float!
-  windSpeed: Float!
-  humidity: Float!
-  timestamp: String!
+  weather: [Weather]!
 }
 
 input CreateCityInput {
   name: String!
 }
 
-type CityWeather {
-  cityID: ID!
-  name: String!
-  city: [City]!
+type Weather {
+  _id: ID!
+  temperature: Float!
+  windSpeed: Float!
+  humidity: Float!
+  timestamp: String!
 }
 
-input CreateCityWeatherInput {
-  name: String!
+input CreateWeatherInput {
+  temperature: Float!
+  windSpeed: Float!
+  humidity: Float!
+  timestamp: String!
 }
 
 type DeleteRes {
@@ -29,13 +31,13 @@ type DeleteRes {
 type RootQuery {
   cities: [City]!
   city(name: String!): City!
-  cityWeather(cityID: ID): [CityWeather]!
+  weather(cityID: ID): [Weather]!
 }
 
 type RootMutation {
   createCity(data: CreateCityInput!): City! 
   deleteCity(name: String!): DeleteRes!
-  createCityWeather(data: CreateCityWeatherInput!): CityWeather!
+  createWeatherData(data: CreateWeatherInput!): Weather!
 }
 
 schema {

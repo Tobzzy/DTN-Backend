@@ -2,10 +2,10 @@ const { Weather } = require("../../../models");
 
 module.exports = async (parent, { cityID }) => {
   try {
-    const cityWeather = await Weather.find();
+    const weather = await Weather.find();
     return cityID
-      ? cityWeather.filter(({ city }) => String(city[0]) === String(cityID))
-      : cityWeather;
+      ? weather.filter(({ city }) => String(city[0]) === String(cityID))
+      : weather;
   } catch (error) {
     return error;
   }

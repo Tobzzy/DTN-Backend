@@ -1,9 +1,9 @@
 const citiesResolver = require("./citiesResolver");
 const cityResolver = require("./cityResolver");
-const cityWeatherResolver = require("./cityWeatherResolver");
+const weatherResolver = require("./weatherResolver");
 
 module.exports = {
   cities: citiesResolver,
   city: cityResolver,
-  cityWeather: cityWeatherResolver,
+  weather: weatherResolver,
 };
