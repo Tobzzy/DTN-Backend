@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var database = "mongodb://localhost:27017/42";
+var database = "mongodb://localhost:27017/100";
 
 mongoose
   .connect(database, { useNewUrlParser: true, useUnifiedTopology: true })

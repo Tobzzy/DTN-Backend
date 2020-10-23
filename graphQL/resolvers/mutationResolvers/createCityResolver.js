@@ -1,11 +1,13 @@
 const { City, Weather } = require("../../../models");
 const { getCityWeather, startCityPoll } = require("./helpers");
 
-/** @todo check if city already exists before creation */
-
 module.exports = async (parent, args) => {
   const { data: { name } = {} } = args;
   try {
+    const docs = await City.find({ name });
+    if (docs.length) {
+      return { response: "City already exist" };
+    }
     const newCity = await City.create({
       name,
       weather: [],
