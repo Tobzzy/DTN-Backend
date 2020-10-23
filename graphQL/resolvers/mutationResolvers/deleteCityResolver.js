@@ -7,7 +7,7 @@ module.exports = async (parent, { name }) => {
     });
 
     return {
-      response: deletedCity ? "Success" : "No Product found for this opertaion",
+      response: deletedCity ? "Success" : "No City found for this opertaion",
     };
   } catch (error) {
     return { response: "Fail" };

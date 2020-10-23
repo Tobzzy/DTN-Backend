@@ -28,6 +28,10 @@ type DeleteRes {
   response: String!
 }
 
+type StopCityPollResponse {
+  response: String!
+}
+
 type RootQuery {
   cities: [City]!
   city(name: String!): City!
@@ -38,6 +42,7 @@ type RootMutation {
   createCity(data: CreateCityInput!): City! 
   deleteCity(name: String!): DeleteRes!
   createWeatherData(data: CreateWeatherInput!): Weather!
+  stopCityPoll(_id: ID!): StopCityPollResponse!
 }
 
 schema {
