@@ -5,11 +5,12 @@ const typeDefs = require("./graphql/schema/index");
 const resolvers = require("./graphql/resolvers");
 const { GraphQLServer } = require("graphql-yoga");
 const app = express();
+require("dotenv").config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var database = "mongodb://localhost:27017/100";
+var database = process.env.MONGO_URI;
 
 mongoose
   .connect(database, { useNewUrlParser: true, useUnifiedTopology: true })

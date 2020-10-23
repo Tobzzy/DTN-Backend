@@ -17,8 +17,7 @@ const weather = new Schema({
     type: Number,
   },
   timestamp: {
-    type: Date,
-    default: new Date(),
+    type: String,
   },
 });
 
