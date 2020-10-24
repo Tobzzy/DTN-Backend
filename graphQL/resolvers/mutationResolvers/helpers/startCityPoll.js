@@ -1,6 +1,7 @@
 const { Weather } = require("../../../../models");
 const getCityWeather = require("./getCityWeather");
 const polls = require("./polls");
+const { pubsub } = require("../../subscriptionResolvers/helper");
 
 module.exports = (city) => {
   polls[city._id] = setInterval(() => {
@@ -10,7 +11,8 @@ module.exports = (city) => {
         ...weather,
       });
       city.weather.push(newWeather);
-      city.save();
+      await city.save();
+      pubsub.publish("city", { city });
     });
-  }, 10000);
+  }, 3600000);
 };

@@ -10,6 +10,7 @@ module.exports = async (parent, args = {}) => {
       windSpeed,
       timestamp,
     });
+
     return createWeatherDataDetail;
   } catch (error) {
     return error;

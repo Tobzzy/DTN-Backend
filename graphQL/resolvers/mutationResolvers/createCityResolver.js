@@ -1,5 +1,6 @@
 const { City, Weather } = require("../../../models");
 const { getCityWeather, startCityPoll } = require("./helpers");
+const { pubsub } = require("../subscriptionResolvers/helper");
 
 module.exports = async (parent, args) => {
   const { data: { name } = {} } = args;
@@ -17,12 +18,12 @@ module.exports = async (parent, args) => {
       city: newCity._id,
       ...(await getCityWeather(name)),
     });
+    pubsub.publish("city", { city: newCity });
 
     newCity.weather.push(newWeather);
     await newCity.save();
 
     startCityPoll(newCity);
-
     return newCity;
   } catch (error) {
     return error;

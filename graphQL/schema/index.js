@@ -45,8 +45,13 @@ type RootMutation {
   stopCityPoll(_id: ID!): StopCityPollResponse!
 }
 
+type RootSubscription {
+  city(name: String!): City!
+}
+
 schema {
   query: RootQuery
   mutation: RootMutation
+  subscription: RootSubscription
 }  
 `;
