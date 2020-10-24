@@ -4,7 +4,7 @@ A weather application to display weather data based on city and it will return i
 
 # Technologies
 
-Nodejs  
+NodeJS  
 MongoDB  
 Mongoose  
 GraphQL
