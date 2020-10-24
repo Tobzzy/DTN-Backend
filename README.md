@@ -1,15 +1,42 @@
-# DTM-Backend
+# Weather App - Backend
 
-## To Install and Run
+A weather application to display weather data based on city and it will return information such as temperature, humidity and windspeed of the particular city.
 
-- git clone repo https://github.com/Tobzzy/DTM-Backend
+# Technologies
 
-- cd DTM-Backend
+Nodejs  
+MongoDB  
+Mongoose  
+GraphQL
 
-- yarn install (to install node modules)
+## Installation
 
-* yarn seed (to fetch data from api and populate database)
+- Git clone repo [DTM-Backend](https://github.com/Tobzzy/DTM-Backend)
 
-- yarn start (to start server)
+#### Pre-requisite
 
-- server will be live on http://localhost:4000
+- Create .env file in the root folder and it should contain the following. check .env.example for more details.
+- To get API_KEY visit [Open Weather](https://openweathermap.org/api)
+
+```JavaScript
+MONGO_URI=
+API_WEATHER_KEY=
+```
+
+- Use the package manager [yarn](https://yarnpkg.com/) to install app
+
+```bash
+yarn install
+```
+
+- To start server
+
+```bash
+yarn start
+```
+
+- Server will be live on [localhost](http://localhost:4000) port 4000
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
